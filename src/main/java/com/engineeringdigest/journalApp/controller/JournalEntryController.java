@@ -4,7 +4,7 @@ import com.engineeringdigest.journalApp.entity.JournalEntry;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // creates a bean and also serves endpoints
-@RequestMapping("/journal")
+@RequestMapping("/_journal")
 public class JournalEntryController {
 
     // Initially there does not exist a database to store all journal entries

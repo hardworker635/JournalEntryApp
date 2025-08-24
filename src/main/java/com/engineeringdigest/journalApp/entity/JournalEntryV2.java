@@ -1,17 +1,28 @@
 package com.engineeringdigest.journalApp.entity;
 
-public class JournalEntry {
+import org.bson.types.ObjectId;
+import org.springframework.cglib.core.Local;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-    private long journalId;
+import java.time.LocalDateTime;
+
+
+@Document(collection = "journal_Entries")
+public class JournalEntryV2 {
+
+    @Id
+    private ObjectId journalId;
+
     private String title;
     private String content;
-    private String journalDate; // metadata
+    private LocalDateTime journalDate; // metadata
 
-    public JournalEntry(){
+    public JournalEntryV2(){
         // empty constructor
     }
     // constructor with arguments
-    public JournalEntry(long journalId, String title, String content, String journalDate){
+    public JournalEntryV2(ObjectId journalId, String title, String content, LocalDateTime journalDate){
         this.journalId = journalId;
         this.title = title;
         this.content = content;
@@ -19,10 +30,10 @@ public class JournalEntry {
     }
 
     // concept of encapsulation
-    public long getJournalId(){
+    public ObjectId getJournalId(){
         return journalId;
     }
-    public void setJournalId(long journalId){
+    public void setJournalId(ObjectId journalId){
         this.journalId = journalId;
     }
 
@@ -35,11 +46,11 @@ public class JournalEntry {
 
 
 
-    public String getJournalDate() {
+    public LocalDateTime getJournalDate() {
         return journalDate;
     }
 
-    public void setJournalDate(String journalDate) {
+    public void setJournalDate(LocalDateTime journalDate) {
         this.journalDate = journalDate;
     }
 
