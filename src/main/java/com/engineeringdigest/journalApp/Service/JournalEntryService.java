@@ -30,12 +30,12 @@ public class JournalEntryService {
         // optional -
     }
 
-    public String deleteEntryById(ObjectId id) {
+    public boolean deleteEntryById(ObjectId id) {
         if(journalentryrepo.findById(id).isPresent()){
             journalentryrepo.deleteById(id);
-            return "Entry is deleted";
+            return true;
         }
-        return "Entry is not present";
+        return false;
     }
 
     public void modifyEntryById(ObjectId givenId){
